@@ -12,7 +12,7 @@ const HomeScreen = () => {
     }
 
     useEffect(() => {
-        showSideBar()
+        showSideBar();
     }, []);
 
     window.addEventListener('resize', showSideBar);

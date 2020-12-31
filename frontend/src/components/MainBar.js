@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Card, Spinner } from 'react-bootstrap'
 import { get_blogs } from '../actions/blogActions';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 
 const MainBar = () => {
     const dispatch = useDispatch();
@@ -25,7 +26,7 @@ const MainBar = () => {
                         <Card.Title as="h3">{blog.title}</Card.Title>
                         <Card.Text>{blog.body.slice(0, 200)}... <Link to={`/blog/${blog._id}`}>read more</Link> </Card.Text>
                         <Card.Text>
-                            <small className="text-muted">{blog.createdAt.substring(11, 16)} | {blog.createdAt.substring(0, 10)}</small>
+                            <small className="text-muted">Created: {moment(blog.createdAt).fromNow()}</small>
                         </Card.Text>
                     </Card.Body>
                 </Card>

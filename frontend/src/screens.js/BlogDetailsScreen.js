@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Card, Button, Spinner } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { blog_delete, get_blog_details } from '../actions/blogActions';
+import moment from 'moment';
 
 const BlogDetailsScreen = ({ history, match }) => {
     const blogId = match.params.id;
@@ -37,7 +38,7 @@ const BlogDetailsScreen = ({ history, match }) => {
                         <Card.Title as="h3">{blog.title}</Card.Title>
                         <Card.Text>{blog.body}</Card.Text>
                         <Card.Text>
-                            <small className="text-muted">Last Updated: {blog.createdAt.substring(11, 16)} | {blog.createdAt.substring(0, 10)}</small>
+                            <small className="text-muted">Last Updated: {moment(blog.updatedAt).fromNow()}</small>
                         </Card.Text>
                     </Card.Body>
                 }
